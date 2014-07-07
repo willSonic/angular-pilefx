@@ -1,0 +1,244 @@
+@import "../../ns-custom-twbs/override/ns-variables";
+@import "../../../bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/mixins";
+@import "../../../bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/theme";
+
+
+#slider-container {
+  -webkit-touch-callout: none;
+  -webkit-user-select:   none;
+  -khtml-user-select:    none;
+  -moz-user-select:      -moz-none;
+  -ms-user-select:       none;
+  user-select:           none;
+}
+
+slider {
+  display:     block;
+  position:    relative;
+  height: $line-height-computed;
+  margin-top: $line-height-computed/2;
+  margin-bottom: $line-height-computed/3;
+  background-color:  none;
+  border-radius: $border-radius-base;
+  //@include box-shadow(inset 0 1px 2px rgba(0,0,0,.1));
+  width:100%;
+}
+
+slider span.bar {
+  height:     40%;
+  z-index:    0;
+  background-color: $mediacontrols-slider-well;
+  border: 1px solid $border-well-color;
+  border-radius: 4px;
+  @include box-shadow(inset 0 1px 1px rgba(0,0,0,.05));
+  left:       0;
+  top:        30%;
+  cursor:     pointer;
+}
+
+slider span.steps{
+  background: red;
+}
+slider span.bar.selection, slider span.bar.unselected {
+  display:     block;
+  position:    relative;
+  width:40px;
+  height:     40%;
+  z-index:   3;
+  border: 1px solid $border-well-color;
+  border-radius: 4px;
+  @include box-shadow(inset 0 1px 1px rgba(0,0,0,.05))
+}
+
+slider span.bar.selection {
+  background: #0a0;
+}
+
+slider span.bar.unselected {
+  width:      auto;
+  background: #a00;
+}
+
+slider span.pointer {
+  cursor:           pointer;
+  width:            30px;
+  height:           30px;
+  top:              -.8em;
+  bottom:           0;
+  border-radius:   15px;
+  text-align: center;
+  padding: 6px 0;
+  line-height: 1.42;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#5b5b5b", endColorstr="#282828");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#5b5b5b), to(#282828));
+  background-image: -moz-linear-gradient(top, #5b5b5b, #282828);
+  background-image: -ms-linear-gradient(top, #5b5b5b, #282828);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #5b5b5b), color-stop(100%, #282828));
+  background-image: -webkit-linear-gradient(top, #5b5b5b, #282828);
+  background-image: -o-linear-gradient(top, #5b5b5b, #282828);
+  background-image: linear-gradient(#5b5b5b, #282828);
+  border-color: #BCBCBC #BCBCBCh hsl(0, 0%, 54%);
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.50);
+  -webkit-font-smoothing: antialiased;
+
+  &:active,
+  &.active {
+    @include box-shadow(inset 0 3px 5px rgba(0,0,0,.125));
+  }
+
+}
+
+slider span.pointer:hover {
+
+}
+
+slider span.bubble {
+  visibility: hidden;
+}
+
+slider span.bubble.selection, slider span.bubble.limit {
+  top: 25%;
+}
+
+slider span.bubble.selection {
+}
+
+slider span.bubble.limit {
+  visibility: hidden;
+}
+
+slider span.bubble.low, slider span.bubble.high {
+}
+
+::-ms-tooltip {
+  display: none;
+}
+
+
+.player-controls-well{
+  min-height: 20px;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: $basic-media-color;
+  border: 1px solid $border-well-color;
+  border-radius: 10px;
+  @include box-shadow(inset 0 2px 2px rgba(0,0,0,.05));
+  blockquote {
+    border-color: #ddd;
+    border-color: rgba(0,0,0,.15);
+  }
+}
+.audio-clip-well{
+  min-height: 20px;
+  line-height: 1.42em;
+  height:40px;
+  padding: 5px;
+  margin-top: 1px;
+  background-color: $mediacontrols-slider-well;
+  border: 1px solid $border-well-color;
+  border-radius: 10px;
+  @include box-shadow(inset 0 2px 2px rgba(0,0,0,.05));
+  blockquote {
+    border-color: #ddd;
+    border-color: rgba(0,0,0,.15);
+  }
+  p{
+    font-size: 15px;
+    margin:5px;
+    font-weight: normal;
+    line-height: 1.42em;
+    text-align: center;
+    font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: $brand-icon-component;
+  }
+}
+
+.btn-mediaplayer{
+  border: 1px solid transparent ;
+  border-radius: 20px;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  padding: 6px 0;
+  line-height: 1.42;
+  @include btn-styles($mediacontrols-color);
+  text-shadow: 0 -1px 0 rgba(0,0,0,.2);
+  $shadow: inset 0 1px 0 rgba(255,255,255,.15), 0 1px 1px rgba(0,0,0,.075);
+  @include box-shadow($shadow);
+
+  // Reset the shadow
+  &:active,
+  &.active {
+    @include box-shadow(inset 0 2px 3px rgba(0,0,0,.125));
+  }
+  &[disabled],
+  fieldset[disabled] & {
+    &:hover,
+    &:focus {
+      color: $btn-link-disabled-color;
+      text-decoration: none;
+    }
+  }
+}
+.btn-media-record{
+  border: 1px solid transparent ;
+  border-radius: 30px;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  line-height: 1.42;
+  margin-left:auto;
+  margin-right:auto;
+  @include btn-styles($mediacontrols-record);
+  text-shadow: 0 -1px 0 rgba(0,0,0,.2);
+  $shadow: inset 0 1px 0 rgba(255,255,255,.15), 0 1px 1px rgba(0,0,0,.075);
+  @include box-shadow($shadow);
+
+  // Reset the shadow
+  &:active,
+  &.active {
+    @include box-shadow(inset 0 2px 3px rgba(0,0,0,.125));
+  }
+  &[disabled],
+  fieldset[disabled] & {
+    &:hover,
+    &:focus {
+      color: lighten($mediacontrols-record, 10%);
+      text-decoration: none;
+    }
+  }
+}
+
+
+.record-level-control {
+  slider span.pointer {
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+      top: -.8em;
+      bottom: 0;
+      border-radius: 15px;
+      text-align: center;
+      padding: 8px 0;
+      line-height: 1.42;
+      background-repeat: repeat-x;
+      @include btn-styles($mediacontrols-record);
+      border: 1px solid $gray-light;
+      text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.50);
+      -webkit-font-smoothing: antialiased;
+
+      &:active,
+      &.active {
+        background-repeat: repeat-x;
+        @include btn-styles(darken($mediacontrols-record, 15%));
+        @include box-shadow(inset 0 3px 5px rgba(0, 0, 0, .125));
+      }
+  }
+}
+.glyphicon-stop,
+.glyphicon-pause,
+.glyphicon-play {
+  color:$brand-icon-component;
+}
+

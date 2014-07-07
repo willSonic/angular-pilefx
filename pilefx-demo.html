@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adaptive Thumbnail Pile Effect with Automatic Grouping</title>
+    <meta name="description" content="Thumbnail Pile Effect with Automatic Grouping" />
+    <meta name="keywords" content="jquery, pile, effect, images, grid, thumbnails, css3, grouping, albums" />
+    <meta name="author" content="Codrops" />
+    <link rel="shortcut icon" href="../favicon.ico">
+    <!-- <link rel="stylesheet" type="text/css" href="styles/css/demo.css" />-->
+    <!--<link rel="stylesheet" type="text/css" href="styles/css/custom.css" />-->
+    <link rel="stylesheet" type="text/css" href="styles/css/stapel.css" />
+    <script src="lib/modernizr.custom.63321.js"></script>
+    <!--[if lte IE 7]><style>.support-note .note-ie{display:block;}</style><![endif]-->
+</head>
+<body bgcolor="#5f9ea0">
+<div class="container">
+
+    <!-- Codrops top bar -->
+
+    <section class="main">
+
+        <div class="wrapper">
+
+            <div class="topbar">
+                <span id="close" class="back">&larr;</span>
+                <h2>Dribbble's Talent</h2><h3 id="name"></h3>
+            </div>
+            <pile-fx></pile-fx>
+        </div>
+    </section>
+
+</div><!-- /container -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.stapel.js"></script>
+<script type="text/javascript">
+    $(function() {
+
+        var $grid = $( '#tp-grid' ),
+                $name = $( '#name' ),
+                $close = $( '#close' ),
+                $loader = $( '<div class="loader"><i></i><i></i><i></i><i></i><i></i><i></i><span>Loading...</span></div>' ).insertBefore( $grid ),
+                stapel = $grid.stapel( {
+                    randomAngle : true,
+                    delay : 50,
+                    gutter : 70,
+                    pileAngles : 5,
+                    onLoad : function() {
+                        $loader.remove();
+                    },
+                    onBeforeOpen : function( pileName ) {
+                        $name.html( pileName );
+                    },
+                    onAfterOpen : function( pileName ) {
+                        $close.show();
+                    }
+                } );
+
+        $close.on( 'click', function() {
+            $close.hide();
+            $name.empty();
+            stapel.closePile();
+        } );
+
+    } );
+</script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+
+<li  ng-repeat="tile in piles" data-pile="{{pile.name}}">
+    <label class="btn btn-mediacontrols riddim-playbtn"
+           ng-show="{{index!=0}}"
+           ng-model="riddimSelectModel"
+           ng-click="playAudioClip(item)"
+           btn-radio="'{{tile.file.id}}'">{{tile.file.file_name|nsFilterTruncate:"."}} </label>
+
+    <a ng-click="displayPile()">
+        <span class="tp-info"><span>Flu &amp; You</span></span>
+        <img src="{{tile.top-img-url}}" alt="top of the pile" class="img-rounded">
+    </a>
+</li>

@@ -1,0 +1,392 @@
+@import "../../ns-custom-twbs/override/ns-variables";
+@import "../../ns-custom-twbs/override/ns-navbar";
+@import "../../ns-custom-twbs/override/ns-navs";
+@import "../../../bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/mixins";
+
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+
+
+$bt-trigger-height:15px;
+$bt-trigger-width:30px;
+
+@media(max-width: 320px) {
+  h2 {
+    font-size: 2em;
+    text-align:center;
+    margin-top:10px;
+  }
+}
+
+header nav .ns-nav{
+  @extend .navbar;
+
+}
+
+header section{
+  padding-top: 10px;
+}
+.ns-navbarheader{
+   @extend .navbar-header;
+   width:100%;
+}
+
+.ns-navheader-left{
+  z-index: 105;
+  top: 0;
+  left: 0;
+  height: 0;
+  background-color: rgba(0,0,0,0);
+  -webkit-backface-visibility: hidden;
+  -webkit-transition: width 0.3s, background-color 0.3s, height 0s 0.3s;
+  transition: width 0.3s, background-color 0.3s, height 0s 0.3s;
+  ul {
+    position: fixed;
+    height: 100%;
+    top: 75px;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    li,
+    li a {
+      display: block;
+      width: 100%;
+      text-align: center;
+      outline: none;
+      color: transparent;
+      text-decoration: none;
+      font-size: 0px;
+    }
+
+    li a:before {
+      color: $brand-icon-component;
+      font-size: 48px;
+      -webkit-transition: color 0.2s;
+      transition: color 0.2s;
+    }
+
+    li a:hover:before,
+    li a:focus:before {
+      color: #fff;
+    }
+
+    li {
+      height: 35%;
+      padding: 16px 0;
+      opacity: 0;
+      visibility: hidden;
+      -webkit-transition: -webkit-transform 0.3s, opacity 0.2s, visibility 0s 0.3s;
+      transition: transform 0.3s, opacity 0.2s, visibility 0s 0.3s;
+    }
+
+    li:first-child {
+      -webkit-transform: translate3d(-100%, 200%, 0);
+      transform: translate3d(-100%, 200%, 0);
+    }
+
+    li:nth-child(2) {
+      -webkit-transform: translate3d(-100%, 100%, 0);
+      transform: translate3d(-100%, 100%, 0);
+    }
+  }
+  .studio-record-nav{
+    color:$brand-primary;
+    @include box-shadow(none);
+    background-color: transparent;
+    &:hover,
+    &:focus {
+      color:$gray-lighter;
+      text-decoration: none;
+    }
+
+    &:active,
+    &.active {
+      color:$brand-icon-component;
+    }
+
+    &:active,
+    &.active {
+       &:hover {
+         color: $brand-primary;
+       }
+    }
+
+    &.disabled,
+    &[disabled],
+    fieldset[disabled] & {
+      color:$gray-lighter;
+    }
+  }
+
+
+}
+
+.ns-navheader-left-open{
+  height: 100%;
+  width: 10%;
+  @media(max-width: 320px) {
+    width:15%;
+  }
+  position:fixed;
+  background-color: $nav-bar-bg-color;
+  -webkit-transition: width 0.3s, background-color 0.3s;
+  transition: width 0.3s, background-color 0.3s;
+}
+
+
+.ns-navheader-middle{
+  h2{
+     text-align: center;
+  }
+}
+
+.ns-navheader-right{
+  @include make-xs-column(4);
+  height:100%;
+}
+
+
+.ns-navheader-left.ns-navheader-left-open {
+  height: 100%;
+  width: 10%;
+  @media(max-width: 320px) {
+    width:15%;
+  }
+  background-color: $nav-bar-bg-color;
+  -webkit-transition: width 0.3s, background-color 0.3s;
+  transition: width 0.3s, background-color 0.3s;
+}
+.ns-navheader-middle.ns-navheader-middle-open{
+  margin-left:33%;
+}
+
+.bt-menu-left-trigger {
+  position: fixed;
+  top: 15px;
+  left: 20px;
+  display: block;
+  width: $bt-trigger-width;
+  height:$bt-trigger-height;
+  cursor: pointer;
+}
+.bt-menu-right-trigger {
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  display: block;
+  width: $bt-trigger-width;
+  height: $bt-trigger-height;
+  cursor: pointer;
+}
+
+
+.bt-menu-left-trigger span {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 4px;
+  margin-top: -2px;
+  background-color: #fff;
+  font-size: 0px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+}
+
+.bt-menu-right-trigger span {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  display: block;
+  width: 100%;
+  height: 4px;
+  margin-top: -2px;
+  background-color: #fff;
+  font-size: 0px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+}
+
+.bt-menu-right-open .bt-menu-right-trigger span {
+  background-color: transparent;
+}
+
+.bt-menu-right-trigger span:before,
+.bt-menu-right-trigger span:after {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  content: '';
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+}
+
+
+.ns-navheader-left-open .bt-menu-left-trigger span {
+  background-color: transparent;
+}
+
+.bt-menu-left-trigger span:before,
+.bt-menu-left-trigger span:after {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  content: '';
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+}
+
+.bt-menu-left-trigger span:before {
+  -webkit-transform: translateY(-250%);
+  transform: translateY(-250%);
+}
+
+.bt-menu-left-trigger span:after {
+  -webkit-transform: translateY(250%);
+  transform: translateY(250%);
+}
+
+.ns-navheader-left-open .bt-menu-left-trigger span:before {
+  -webkit-transform: translateY(0) rotate(45deg);
+  transform: translateY(0) rotate(45deg);
+}
+
+.ns-navheader-left-open .bt-menu-left-trigger span:after {
+  -webkit-transform: translateY(0) rotate(-45deg);
+  transform: translateY(0) rotate(-45deg);
+}
+
+
+.ns-navheader-left.ns-navheader-left-open ul li {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transition: -webkit-transform 0.3s, opacity 0.3s 0.1s;
+  transition: transform 0.3s, opacity 0.3s;
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+}
+
+
+
+.bt-icon:before,
+.bt-icon-alt:before {
+  font-family: "Fontsaddict";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none !important;
+  speak: none;
+  display: inline-block;
+  text-decoration: none;
+  width: 1em;
+  line-height: inherit;
+  -webkit-font-smoothing: antialiased;
+}
+
+
+
+
+.bt-iconfa:before,
+.bt-iconfa-alt:before {
+  font-family: "FontAwesome";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none !important;
+  speak: none;
+  display: inline-block;
+  text-decoration: none;
+  width: 1em;
+  line-height: inherit;
+  -webkit-font-smoothing: antialiased;
+}
+
+
+
+@media screen and (max-width: 30em) {
+  body {
+    font-size: 90%;
+  }
+}
+
+@media screen and (max-height: 29em) {
+  .container {
+    height: auto;
+  }
+  .codrops-header {
+    position: relative;
+    margin: 0 auto;
+    height: auto;
+    max-width: 100%;
+  }
+}
+
+
+@media screen and (max-height: 31.125em) {
+  .ns-navheader-left ul li a:before {
+    font-size: 32px;
+  }
+}
+/*
+.bt-menu-right{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  border-width: 0px;
+  border-style: solid;
+  border-color: #333;
+  background-color: rgba(0,0,0,0);
+  -webkit-backface-visibility: hidden;
+  -webkit-transition: border-width 0.3s, background-color 0.3s, height 0s 0.3s;
+  transition: border-width 0.3s, background-color 0.3s, height 0s 0.3s;
+}
+
+.bt-menu-right.bt-menu-right-open {
+  height: 100%;
+  border-width: 30px 30px 30px 90px;
+  background-color: rgba(0,0,0,0.3);
+  -webkit-transition: border-width 0.3s, background-color 0.3s;
+  transition: border-width 0.3s, background-color 0.3s;
+}
+
+*/
+.bt-menu-right-trigger span:before {
+  -webkit-transform: translateY(-250%);
+  transform: translateY(-250%);
+}
+
+.bt-menu-right-trigger span:after {
+  -webkit-transform: translateY(250%);
+  transform: translateY(250%);
+}
+
+.bt-menu-right-open .bt-menu-right-trigger span:before {
+  -webkit-transform: translateY(0) rotate(45deg);
+  transform: translateY(0) rotate(45deg);
+}
+
+.bt-menu-right-open .bt-menu-right-trigger span:after {
+  -webkit-transform: translateY(0) rotate(-45deg);
+  transform: translateY(0) rotate(-45deg);
+}

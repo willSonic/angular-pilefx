@@ -1,0 +1,373 @@
+@import "../../ns-custom-twbs/override/ns-variables";
+@import "../../../bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/mixins";
+@import "../../../bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/theme";
+
+$studio-left-default:10%;
+
+@media(max-width: 320px) {
+  $studio-left-default:15%;
+  h2 {
+    font-size: 1.8em;
+    text-align:left;
+  }
+  h4 {
+    font-size: 1.8em;
+    text-align:left;
+  }
+}
+
+
+$studioGutterWidth  : ($grid-gutter-width / $grid-gutter-width * $studio-left-default);
+
+
+@media(max-width: 320px) {
+  left:15%;
+}
+
+.btn-facebook{
+  @include  button-variant($btn-fb-color, $btn-fg-bg, $btn-fb-border);
+}
+.btn-mediacontrols{
+  @include  button-variant($btn-mediacontrol-color, $btn-mediacontrol-bg,  $btn-mediacontrol-border);
+  @include  btn-styles($btn-mediacontrol-bg);
+}
+
+.ui-studio{
+  @include make-row($studioGutterWidth);
+}
+
+.my-studio{
+  @include make-xs-column(12, $studioGutterWidth);
+  height:100%;
+  left:$studio-left-default;
+  top: 10%;
+  padding:0;
+  z-index: 102;
+  position: fixed;
+  background-color: rgba(0,0,0,0.6);
+  -webkit-transition:  background-color 0.6s;
+  transition:background-color 0.6s;
+}
+.my-studio-ui-view{
+  @include make-row($studioGutterWidth);
+  @include make-xs-column(12, $studioGutterWidth);
+}
+.studio-login-container{
+  top:25px;
+}
+
+
+
+.record-level-control,
+.audio-volume-control{
+  margin-top:5px;
+  p{
+    font-size: 10px;
+    margin:5px;
+    font-weight: normal;
+    line-height: 1em;
+    text-align: left;
+    font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color:$brand-primary;
+
+  }
+}
+
+/*
+.studio-h-type {
+  top: 15%;
+  font-size: 3em;
+  text-align: center;
+  @media(max-width: 320px) {
+    text-align: left;
+  }
+  color: lighten($brand-info, 10%);
+}
+*/
+
+.studio-stage {
+  margin-top: 20px;
+  > .panel {
+      background-image: linear-gradient(to bottom, #f5f5f5 0%, #e8e8e8 100%);
+      background-repeat: repeat-x;
+      border-radius: 4px;
+      border: 1px solid transparent;
+      border-color: $nav-bar-bg-color;
+    }
+    .panel-default {
+      border-color: $nav-bar-bg-color;
+    }
+    .panel-default > .panel-heading {
+      background-image: linear-gradient(to bottom, $nav-bar-bg-color 0%, $nav-bar-bg-color 100%);
+      background-repeat: repeat-x;
+      border-color: $nav-bar-bg-color;
+    }
+    .panel-heading{
+      color: $brand-primary;
+      text-align: center;
+      line-height: 1em;
+      font-size: 15px;
+      font-weight: normal;
+    }
+    .panel-body{
+      padding:10px;
+    }
+}
+
+.studio-stage .studio-panel{
+    .carousel-control {
+      visibility:hidden;
+
+    }
+    .ns-riddim-controls{
+      @media(max-height: 480px) {
+          height:45px;
+      }
+    }
+    .carousel-indicators{
+      visibility:hidden;
+    }
+    .carousel-slide{
+      @media(max-height: 480px) {
+        height: 140px;
+      }
+    }
+}
+
+.riddim-select-container{
+  margin-top:10px;
+}
+.riddim-select-pager {
+  padding-left: 0;
+  font-size: 1.5em;
+  margin:0;
+  list-style: none;
+  text-align: center;
+  @include clearfix();
+  .glyphicon{
+    color:$btn-mediacontrol-color;
+  }
+  li {
+    display: inline;
+    padding-left:5px;
+    padding-right:5px;
+    > a,
+    > span {
+      display: inline-block;
+      padding: 5px 14px;
+      background-color: $pager-bg;
+      border: 1px solid $pager-border;
+      border-radius: $pager-border-radius;
+    }
+
+    > a:hover,
+    > a:focus {
+      text-decoration: none;
+      background-color: darken($pager-bg, 10%);
+    }
+    > a.disabled{
+      background-color: $pager-hover-bg;
+    }
+  }
+
+  .next {
+    > a,
+    > span {
+      float: right;
+      color:$btn-mediacontrol-color;
+    }
+  }
+
+  .previous {
+    > a,
+    > span {
+      float: left;
+      color:$btn-mediacontrol-color;
+    }
+  }
+
+  .disabled {
+    > a,
+    > a:hover,
+    > a:focus,
+    > span {
+      color: $pager-disabled-color;
+      background-color: $pager-hover-bg;
+      cursor: not-allowed;
+    }
+  }
+}
+
+
+
+//riddim selector volume control
+.recording-booth,
+.riddim-selector{
+  height:90%;
+}
+
+.riddim-playbtn{
+  width:80%;
+  line-height: 1em;
+  margin-bottom:5px;
+}
+
+
+
+
+
+.form-signin {
+  display:block;
+  background-color:$body-bg;
+  -moz-box-shadow: 0 0 3px 3px #888;
+  -webkit-box-shadow: 0 0 3px 3px #888;
+  box-shadow: 0 0 3px 3px #888;
+  border-radius:5px;
+}
+
+.form-signin legend{
+  font-size:20px;
+  color: $text-color;
+  text-align: center;
+  padding:10px;
+}
+
+.social-box{
+  padding: 10px;
+}
+.center-h{
+  color:$text-color;
+  text-align: center;
+}
+.form-signin .form-control {
+  padding: 5px;
+  &:focus {
+    z-index: 2;
+  }
+}
+
+.form-input-group{
+  margin-bottom: 5px;
+  > input{
+    height:30px;
+  }
+}
+
+.form-signin .alert {
+  max-width: 238px; /*might not be the best way to restrict the width */
+}
+.login-footer{
+  margin: 0 auto;
+  border-top: 1px solid $panel-default-border;
+  padding:20px;
+}
+.login-footer .left-section a{
+  font-weight:bold;
+  color:$brand-primary;
+  line-height:19px;
+}
+
+.studio-rs-range{
+  display:block;
+  margin-bottom: .5em;
+}
+
+
+
+
+/// Recording STudio
+.clock-colon{
+  margin-top:5px;
+}
+.circle{
+  margin-top:6px;
+  margin-left:12px;
+  width: 12px;
+  height: 12px;
+  background:  $nav-bar-bg-color;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+
+}
+
+.record-clock-well{
+  h2 {
+    margin-top:5px;
+    margin-bottom:5px;
+  }
+  min-height:15px;
+  color:$brand-primary;
+  padding: 8px;
+  margin-bottom: 5px;
+  background-color: $basic-media-color;
+  border: 1px solid $border-well-color;
+  border-radius: 10px;
+  @include box-shadow(inset 0 2px 2px rgba(0,0,0,.05));
+  blockquote {
+    border-color: #ddd;
+    border-color: rgba(0,0,0,.15);
+  }
+}
+
+.record-controls-well{
+  background-color: $basic-media-color;
+  border: 1px solid $border-well-color;
+  @include box-shadow(inset 0 2px 2px rgba(0,0,0,.05));
+}
+
+.recordbtn-container{
+  min-height: 20px;
+  padding:8px;
+  margin-top:5px;
+  margin-bottom: 5px;
+  background-color: $gray-light;
+  border: 1px solid $border-well-color;
+  border-radius: 5px;
+  @include box-shadow(inset 0 2px 2px rgba(0,0,0,.05));
+}
+
+.beatbtn-container{
+  min-height: 20px;
+  padding:6px;
+  margin-top:5px;
+  margin-bottom: 5px;
+  background-color:darken($basic-media-color, 10%);
+  border: 1px solid $border-well-color;
+  border-radius: 5px;
+  @include box-shadow(inset 0 2px 2px rgba(0,0,0,.05));
+}
+
+.beat-level{
+  margin-bottom:0;
+}
+
+.beat-level {
+  .progress {
+    height: 20px;
+    margin-bottom: 10px;
+    .progress-bar {
+    /*  background: rgba(153, 153, 153, 1);
+      border: 4px solid rgba(245, 245, 245, 1);
+      border-radius: 4px;
+      height: 20px;*/
+    }
+  }
+}
+
+.mic-level{
+  margin-bottom:0;
+}
+
+.mic-level{
+  .progress{
+    height: 20px;
+    margin-bottom: 10px;
+    .progress-bar {
+     /* background: rgba(153, 153, 153, 1);
+      border: 1px solid rgba(245, 245, 245, 1);
+      border-radius: 4px;
+      height: 20px;*/
+    }
+  }
+}
